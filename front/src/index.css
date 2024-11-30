@@ -1,3 +1,52 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-Regular.ttf');
+  }
+
+  @font-face {
+    font-family: 'Sevillana';
+    src: url('/fonts/Sevillana/Sevillana-Regular.ttf');
+  }
+
+  body {
+    @apply font-poppins text-base overflow-x-hidden;
+    margin: 0;
+  }
+}
+
+.custom-bg-home {
+    background-image : url('./images/bg-home.jpg');
+    background-repeat : no-repeat;
+    background-size : cover;
+    background-position : center center;
+    background-attachment : fixed;
+    height: 100vh;
+  }
+
+  .custom-menubar {
+    background-color: transparent !important;
+    border : none !important;
+  }
+  
+  .custom-menubar .p-menubar {
+  background-color: transparent !important;
+  }
+  
+  .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
+    color : white !important;
+  }
+  
+  .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text:hover {
+    background-color : transparent !important;
+  }
+  
+  .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content:hover {
+    background-color : transparent !important;
+    text-decoration : underline 2px white !important;
+    text-underline-offset : 12px;
+  }
