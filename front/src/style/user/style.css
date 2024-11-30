@@ -1,0 +1,15 @@
+.custom-border-search {
+    border : 1px solid white !important;
+}
+
+.custom-btn-search {
+    width : 4rem;
+    height : 3rem;
+    border-radius : 40%;
+    margin : 0.2rem 0rem 0rem 0rem;
+}
+
+.custom-input-search:focus {
+    border : none;
+    outline : none;
+}
