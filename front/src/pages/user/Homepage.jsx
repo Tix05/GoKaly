@@ -4,15 +4,17 @@ import { Button } from "primereact/button"
 import { useState } from "react"
 import FoodCarousel from "../../components/user/FoodCarousel"
 import { motion } from "framer-motion"
+import LoginDialog from "./LoginDialog"
 
 import "../../style/user/style.css"
 
 const Homepage = () => {
     const [inputSearch, setInputSearch] = useState("")
+    const [visibleLogin, setVisibleLogin] = useState(false)
 
     return (
         <div className="custom-bg-home min-h-screen flex flex-col">
-            <HMenu />
+            <HMenu visibleLogin={visibleLogin} setVisibleLogin={setVisibleLogin} />
 
             <main className="ms-24 me-4 flex-1">
                 <motion.div
@@ -67,6 +69,8 @@ const Homepage = () => {
                     Copyright 2024 - Tous droits réservés
                 </p>
             </main>
+
+            <LoginDialog visibleLogin={visibleLogin} setVisibleLogin={setVisibleLogin} />
         </div>
     )
 }
