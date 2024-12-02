@@ -3,7 +3,7 @@ import Logo from '../Logo'
 import { Button } from 'primereact/button'
 import { Menubar } from "primereact/menubar"
 
-const HMenu = () => {
+const HMenu = ({ visibleLogin, setVisibleLogin }) => {
     const navigate = useNavigate()
 
     const menuItems = [
@@ -30,7 +30,7 @@ const HMenu = () => {
     const authBtn = (
         <div className="flex me-96 space-x-3">
             <i className="pi pi-shopping-cart text-white cursor-pointer mt-2 me-4" title="Votre panier"></i>
-            <Link to="/login"><Button label="Se connecter" className="bg-brick text-white font-poppins border border-none outline outline-none text-sm py-2 px-6" /></Link>
+            <Button label="Se connecter" className="bg-brick text-white font-poppins border border-none outline outline-none text-sm py-2 px-6" onClick={() => setVisibleLogin(true)} />
             <Link to="/home-register"><Button label="S'inscrire" className="bg-white text-black font-poppins border border-none outline outline-none text-sm py-2 px-6" /></Link>
         </div>
     )
