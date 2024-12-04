@@ -20,7 +20,7 @@
 }
 
 .custom-bg-home {
-    background-image : url('./images/bg-home.jpg');
+    background-image : url('./images/bg-home-photo.png');
     background-repeat : no-repeat;
     background-size : cover;
     background-position : center center;
@@ -38,7 +38,7 @@
   }
   
   .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
-    color : white !important;
+    color : black !important;
   }
   
   .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text:hover {
@@ -47,6 +47,6 @@
   
   .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content:hover {
     background-color : transparent !important;
-    text-decoration : underline 2px white !important;
+    text-decoration : underline 2px black !important;
     text-underline-offset : 12px;
   }
