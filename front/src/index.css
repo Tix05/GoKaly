@@ -28,6 +28,15 @@
     height: 100vh;
   }
 
+  .custom-bg-admin {
+    background-image : url('./images/bg-admin.jpg');
+    background-repeat : no-repeat;
+    background-size : cover;
+    background-position : center center;
+    background-attachment : fixed;
+    height: 100vh;
+  }
+
   .custom-menubar {
     background-color: transparent !important;
     border : none !important;

@@ -4,6 +4,7 @@ import { AnimatePresence } from 'framer-motion'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import Homepage from './pages/user/Homepage'
+import LoginAdmin from './pages/admin/LoginAdmin'
 
 function App() {
   const [loading, setLoading] = useState(false)
@@ -29,6 +30,9 @@ function App() {
             <Routes>
               {/* ======= USER ========= */}
               <Route path="/" element={<Homepage />} />
+
+              {/* ======= ADMIN ========= */}
+              <Route path="/login-admin" element={<LoginAdmin />} />
             </Routes>
           </BrowserRouter>
 
