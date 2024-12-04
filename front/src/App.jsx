@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import Homepage from './pages/user/Homepage'
 import LoginAdmin from './pages/admin/LoginAdmin'
+import Dashboard from './pages/admin/Dashboard'
 
 function App() {
   const [loading, setLoading] = useState(false)
@@ -33,6 +34,7 @@ function App() {
 
               {/* ======= ADMIN ========= */}
               <Route path="/login-admin" element={<LoginAdmin />} />
+              <Route path="/dashboard" element={<Dashboard />} />
             </Routes>
           </BrowserRouter>
 

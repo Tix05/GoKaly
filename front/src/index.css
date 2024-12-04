@@ -37,6 +37,16 @@
     height: 100vh;
   }
 
+  .custom-bg-banner {
+    background-image : url('./images/bg-banner.png');
+    background-repeat : no-repeat;
+    background-size : cover;
+    background-position : top top;
+    background-attachment : fixed;
+    height: 12vh;
+    width : 20vw;
+  }
+
   .custom-menubar {
     background-color: transparent !important;
     border : none !important;
