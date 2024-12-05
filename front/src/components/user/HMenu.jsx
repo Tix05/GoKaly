@@ -9,7 +9,7 @@ const HMenu = ({ visibleLogin, setVisibleLogin }) => {
     const menuItems = [
         {
             label: 'Accueil',
-            command: () => navigate('/home')
+            command: () => navigate('/')
         },
         {
             label: 'Découvrir',
@@ -29,15 +29,15 @@ const HMenu = ({ visibleLogin, setVisibleLogin }) => {
 
     const authBtn = (
         <div className="flex me-96 space-x-3">
-            <i className="pi pi-shopping-cart text-white cursor-pointer mt-2 me-4" title="Votre panier"></i>
+            <i className="pi pi-shopping-cart  cursor-pointer mt-2 me-4" title="Votre panier"></i>
             <Button label="Se connecter" className="bg-brick text-white font-poppins border border-none outline outline-none text-sm py-2 px-6" onClick={() => setVisibleLogin(true)} />
-            <Link to="/home-register"><Button label="S'inscrire" className="bg-white text-black font-poppins border border-none outline outline-none text-sm py-2 px-6" /></Link>
+            <Link to="/home-register"><Button label="S'inscrire" className="bg-neutral-100 shadow text-black font-poppins border border-none outline outline-none text-sm py-2 px-6" /></Link>
         </div>
     )
 
     return (
-        <header className='pt-5'>
-            <Menubar model={menuItems} className='custom-menubar font-poppins text-sm text-white ms-16' start={logoContainer} end={authBtn} />
+        <header className='pt-1'>
+            <Menubar model={menuItems} className='custom-menubar font-poppins text-sm  ms-16' start={logoContainer} end={authBtn} />
         </header>
     )
 }

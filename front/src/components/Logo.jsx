@@ -1,7 +1,18 @@
-const Logo = () => {
+import PropTypes from 'prop-types'
+import logo from '../assets/logo.png'
+
+const Logo = ({ className }) => {
     return (
-        <h1 className="font-sevillana text-white text-[2.3rem] font-semibold">Go<span className="text-teal">Kaly</span></h1>
+        <img src={logo} alt="GoKaly" className={`w-28 h-28 ${className}`} />
     )
+}
+
+Logo.propTypes = {
+    className: PropTypes.string,
+}
+
+Logo.defaultProps = {
+    className: '',
 }
 
 export default Logo

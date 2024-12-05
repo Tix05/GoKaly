@@ -1,8 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@layer tailwind-base, primereact, tailwind-utilities;
 
-@layer base {
+@layer tailwind-base {
   @font-face {
     font-family: 'Poppins';
     src: url('/fonts/Poppins/Poppins-Regular.ttf');
@@ -12,20 +10,47 @@
     font-family: 'Sevillana';
     src: url('/fonts/Sevillana/Sevillana-Regular.ttf');
   }
+}
 
-  body {
-    @apply font-poppins text-base overflow-x-hidden;
-    margin: 0;
-  }
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+}
+
+body {
+  @apply font-poppins;
+  @apply text-sm;
+  @apply overflow-hidden;
+
+  margin : 0;
 }
 
 .custom-bg-home {
-    background-image : url('./images/bg-home.jpg');
+    background-image : url('./images/bg-home-photo.png');
     background-repeat : no-repeat;
     background-size : cover;
     background-position : center center;
     background-attachment : fixed;
     height: 100vh;
+  }
+
+  .custom-bg-admin {
+    background-image : url('./images/bg-admin.jpg');
+    background-repeat : no-repeat;
+    background-size : cover;
+    background-position : center center;
+    background-attachment : fixed;
+    height: 100vh;
+  }
+
+  .custom-bg-banner {
+    background-image : url('./images/bg-banner.png');
+    background-repeat : no-repeat;
+    background-size : cover;
+    background-position : top top;
+    background-attachment : fixed;
+    height: 12vh;
+    width : 20vw;
   }
 
   .custom-menubar {
@@ -38,7 +63,7 @@
   }
   
   .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
-    color : white !important;
+    color : black !important;
   }
   
   .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text:hover {
@@ -47,6 +72,6 @@
   
   .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content:hover {
     background-color : transparent !important;
-    text-decoration : underline 2px white !important;
+    text-decoration : underline 2px black !important;
     text-underline-offset : 12px;
   }
