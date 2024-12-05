@@ -1,8 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@layer tailwind-base, primereact, tailwind-utilities;
 
-@layer base {
+@layer tailwind-base {
   @font-face {
     font-family: 'Poppins';
     src: url('/fonts/Poppins/Poppins-Regular.ttf');
@@ -12,11 +10,19 @@
     font-family: 'Sevillana';
     src: url('/fonts/Sevillana/Sevillana-Regular.ttf');
   }
+}
 
-  body {
-    @apply font-poppins text-base overflow-x-hidden;
-    margin: 0;
-  }
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+}
+
+body {
+  @apply font-poppins;
+  @apply text-sm;
+  @apply overflow-hidden;
+
+  margin : 0;
 }
 
 .custom-bg-home {

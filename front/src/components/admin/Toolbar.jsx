@@ -22,7 +22,7 @@ const ToolBar = ({ collapsed, setCollapsed }) => {
 
     return (
         <>
-            <header className={`mt-4 flex justify-between ${collapsed ? 'ps-24' : 'ps-64'} pe-6 bg-neutral-200 h-[4.75rem]`}>
+            <header className={`mt-4 flex justify-between ${collapsed ? 'ps-24' : 'ps-64'} pe-6 bg-neutral-50 h-[4.75rem]`}>
                 <div className="flex flex-row justify-start space-x-8">
                     <div className="custom-bg-banner -ms-16">
                     </div>
@@ -39,7 +39,7 @@ const ToolBar = ({ collapsed, setCollapsed }) => {
                         </div>
                     </div>
                 </div>
-                <Toolbar center={centerContent} end={endContent} className="bg-neutral-200 border border-none outline-none -mt-4" />
+                <Toolbar center={centerContent} end={endContent} className="bg-neutral-50 border border-none outline-none -mt-4" />
             </header >
         </>
     )

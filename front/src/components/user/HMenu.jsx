@@ -9,7 +9,7 @@ const HMenu = ({ visibleLogin, setVisibleLogin }) => {
     const menuItems = [
         {
             label: 'Accueil',
-            command: () => navigate('/home')
+            command: () => navigate('/')
         },
         {
             label: 'Découvrir',
