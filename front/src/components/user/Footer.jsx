@@ -36,34 +36,34 @@ const Footer = () => {
           <div className="flex justify-center sm:justify-start">
             <Logo className="w-20 h-20" />
           </div>
-          <p className="font-poppins text-xs w-full md:w-44">GoKaly est un site de référencement culinaire à Madagascar, qui vous permet de découvrir les meilleurs restaurants.</p>
+          <p className="font-poppins text-xs w-full md:w-44">{t('footerDescription')}</p>
         </div>
 
         <nav className="text-center sm:text-left">
-          <h5 className="font-poppins text-white text-sm md:ms-8">Liens rapides</h5>
+          <h5 className="font-poppins text-white text-sm md:ms-8">{t('quickLinks')}</h5>
           <ul className="-mt-1">
-            <Link className="font-poppins text-white no-underline"><li className="mb-2">Accueil</li></Link>
-            <Link className="font-poppins text-white no-underline"><li className="mb-2">Blog</li></Link>
-            <Link className="font-poppins text-white no-underline"><li className="mb-2">A propos</li></Link>
-            <Link className="font-poppins text-white no-underline"><li className="mb-2">Contact</li></Link>
+            <Link className="font-poppins text-white no-underline"><li className="mb-2">{t('home')}</li></Link>
+            <Link className="font-poppins text-white no-underline"><li className="mb-2">{t('blog')}</li></Link>
+            <Link className="font-poppins text-white no-underline"><li className="mb-2">{t('about')}</li></Link>
+            <Link className="font-poppins text-white no-underline"><li className="mb-2">{t('contact')}</li></Link>
           </ul>
         </nav>
 
         <nav className="text-center sm:text-left">
-          <h5 className="font-poppins text-white text-sm md:ms-8">Business</h5>
+          <h5 className="font-poppins text-white text-sm md:ms-8">{t('business')}</h5>
           <ul className="-mt-1">
-            <Link className="font-poppins text-white no-underline"><li className="mb-2">Explorer</li></Link>
-            <Link className="font-poppins text-white no-underline"><li className="mb-2">Commander</li></Link>
-            <Link className="font-poppins text-white no-underline"><li className="mb-2">Partenariat</li></Link>
-            <Link className="font-poppins text-white no-underline"><li className="mb-2">Réserver une table</li></Link>
+            <Link className="font-poppins text-white no-underline"><li className="mb-2">{t('explore')}</li></Link>
+            <Link className="font-poppins text-white no-underline"><li className="mb-2">{t('order')}</li></Link>
+            <Link className="font-poppins text-white no-underline"><li className="mb-2">{t('partnership')}</li></Link>
+            <Link className="font-poppins text-white no-underline"><li className="mb-2">{t('reserveTable')}</li></Link>
           </ul>
         </nav>
 
         <div className="text-center sm:text-left">
-          <h5 className="font-poppins text-white text-sm">Contact</h5>
+          <h5 className="font-poppins text-white text-sm">{t('contact')}</h5>
           <div>
             <p><i className="pi pi-phone me-2"></i> +261 34 00 00 00</p>
-            <p><i className="pi pi-map-marker me-2"></i> 34 rue de la paix, Antananarivo</p>
+            <p><i className="pi pi-map-marker me-2"></i> {t('address')}</p>
             <p><i className="pi pi-envelope me-2"></i> gokalysupport@gmail.com</p>
           </div>
 
@@ -80,8 +80,8 @@ const Footer = () => {
 
       <section className="mt-8 flex flex-col md:flex-row justify-between px-4 md:px-40 space-y-4 md:space-y-0">
         <div className="flex flex-col md:flex-row justify-center space-y-2 md:space-y-0 md:space-x-12">
-          <Link className="font-poppins text-white no-underline text-xs text-center">Conditions d'utilisation</Link>
-          <Link className="font-poppins text-white no-underline text-xs text-center">Politique de confidentialité</Link>
+          <Link className="font-poppins text-white no-underline text-xs text-center">{t('termsOfUse')}</Link>
+          <Link className="font-poppins text-white no-underline text-xs text-center">{t('privacyPolicy')}</Link>
         </div>
 
         <div className="flex flex-row justify-center md:justify-start space-x-2 md:me-6">
@@ -95,7 +95,7 @@ const Footer = () => {
 
       <Divider className="mt-8" />
 
-      <p className='mt-8 text-center text-[0.75em]'>&copy; {new Date().getFullYear()} GoKaly. Tous droits réservés.</p>
+      <p className='mt-8 text-center text-[0.75em]'>&copy; {new Date().getFullYear()} GoKaly. {t('allRightsReserved')}</p>
     </footer>
   )
 }
