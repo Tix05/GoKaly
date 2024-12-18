@@ -21,7 +21,8 @@ export default {
 
       fontFamily: {
         poppins: 'Poppins',
-        sevillana: 'Sevillana',
+        kanit: 'Kanit',
+        satisfy: 'Satisfy',
       },
       animation: {
         slide: "slide 20s linear infinite",
