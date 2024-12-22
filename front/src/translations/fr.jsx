@@ -20,13 +20,25 @@ const fr = {
 
     // Menu translations
     menuHome: 'Accueil',
+    menuRestaurants: 'Restaurants',
     menuAbout: 'À propos',
-    menuBlog: 'Blog',
-    menuPartnership: 'Partenariat',
     menuContact: 'Contact',
     menuSearch: 'Rechercher',
     menuCart: 'Votre panier',
-    menuLogin: 'Connexion'
+    menuLogin: 'Connexion',
+    menuPartnership: 'Partenariat',
+
+    homeWelcome: 'Bienvenue sur',
+    homeSubtitle: 'La plateforme de référencement culinaire à Madagascar',
+    homeDescription: 'Explorez, réserver vos tables et commandez vos menus dans vos restaurants préférés en quelques clics.',
+    homeDiscover: 'Découvrir',
+    homeExploreCard: 'Découvrez plus de 1000 restaurants à Madagascar et trouvez votre prochain repas préféré.',
+    homeOrderCard: 'Commandez votre repas en ligne et recevez-le rapidement à votre porte.',
+    homeDeliveryCard: 'Faites-vous livrer vos repas préférés à domicile, au bureau ou à l\'occasion d\'un événement.',
+    discoverPopularResto: 'Découvrez les restaurants populaires',
+    homeCategoryTitle: 'Explorez les catégories de menu',
+    homeCategoryDescription: 'Découvrez un monde de délices culinaires ! Parcourez les catégories de menu diversifiées et trouvez le plat parfait qui correspond à votre humeur et à votre appétit.',
+    discoverIdealResto: 'Idéal en ce moment',
 }
 
 export default fr

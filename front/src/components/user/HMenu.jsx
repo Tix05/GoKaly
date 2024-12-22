@@ -27,7 +27,7 @@ const HMenu = () => {
       url: '/about'
     },
     {
-      label: t('menuBlog'),
+      label: 'Blog',
       url: '/blog'
     },
     {
