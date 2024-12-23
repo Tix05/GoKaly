@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/user/Home'
+import Login from './pages/user/Login'
 import Layout from './pages/user/Layout'
 
 function App() {
@@ -28,11 +29,9 @@ function App() {
           <BrowserRouter><Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
-
+              <Route index path='login' element={<Login />} />
             </Route>
           </Routes>
-            <Routes>
-            </Routes>
           </BrowserRouter>
 
         </body>
