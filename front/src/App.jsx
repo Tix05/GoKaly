@@ -6,6 +6,7 @@ import Home from './pages/user/Home'
 import Login from './pages/user/Login'
 import Layout from './pages/user/Layout'
 import Register from './pages/user/Register'
+import LoginRestaurant from './pages/restaurant/Login'
 
 function App() {
   const [loading, setLoading] = useState(false)
@@ -28,11 +29,15 @@ function App() {
       <AnimatePresence>
         <body className='min-h-screen'>
           <BrowserRouter><Routes>
+            {/** USER */}
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
               <Route index path='login' element={<Login />} />
               <Route index path='register' element={<Register />} />
             </Route>
+
+            {/** RESTAURANT */}
+            <Route path="/login-restaurant" element={<LoginRestaurant />}></Route>
           </Routes>
           </BrowserRouter>
 
