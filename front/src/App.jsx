@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/user/Home'
 import Login from './pages/user/Login'
 import Layout from './pages/user/Layout'
+import Register from './pages/user/Register'
 
 function App() {
   const [loading, setLoading] = useState(false)
@@ -30,6 +31,7 @@ function App() {
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
               <Route index path='login' element={<Login />} />
+              <Route index path='register' element={<Register />} />
             </Route>
           </Routes>
           </BrowserRouter>

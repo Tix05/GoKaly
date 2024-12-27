@@ -4,9 +4,11 @@ import { Badge } from 'primereact/badge'
 import { Button } from 'primereact/button'
 import logo from "../../assets/logo.png"
 import { useLanguage } from '../../utils/LangConfig'
+import { useNavigate } from 'react-router-dom'
 
 const HMenu = () => {
   const { t, language, switchLanguage } = useLanguage()
+  const navigate = useNavigate()
 
   const langOptions = [
     { name: 'Français', code: 'FR' },
@@ -66,7 +68,7 @@ const HMenu = () => {
       </div>
 
       <div className="">
-        <Button label={t('menuLogin')} className="font-poppins -mt-[0.125rem] h-7 text-xs bg-brick border border-none outline outline-none" />
+        <Button label={t('menuLogin')} className="font-poppins -mt-[0.125rem] h-7 text-xs bg-brick border border-none outline outline-none" onClick={() => navigate("/login")} />
       </div>
     </div>
   )

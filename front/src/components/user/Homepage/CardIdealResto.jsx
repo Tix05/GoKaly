@@ -83,7 +83,7 @@ const CardIdealResto = ({ restos }) => {
         <div className="space-y-7">
             <div className="flex justify-between items-center">
                 <h1 className="font-satisfy text-2xl">{t('discoverIdealResto')}</h1>
-                <div className="flex gap-3">
+                <div className="flex gap-3 -z-10">
                     <button
                         onClick={handlePrevious}
                         className="carousel-arrow w-10 h-10 rounded-full border border-none bg-white hover:bg-blackCustom hover:text-white shadow-md flex items-center justify-center"

@@ -45,11 +45,11 @@ const Login = () => {
 
                 <div className="p-inputgroup flex-1 w-96 mt-8">
                     <span className="p-inputgroup-addon bg-teal">
-                        <i className="pi pi-envelope text-white"></i>
+                        <i className="pi pi-lock text-white"></i>
                     </span>
                     <FloatLabel>
                         <Password id="mdp" value={mdp} onChange={(e) => setMdp(e.target.value)} />
-                        <label htmlFor="myEmail">Mot de passe</label>
+                        <label htmlFor="mdp">Mot de passe</label>
                     </FloatLabel>
                 </div>
 
