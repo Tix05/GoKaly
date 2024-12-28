@@ -20,6 +20,28 @@
 @layer tailwind-utilities {
   @tailwind components;
   @tailwind utilities;
+
+  .slide-down-enter {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  
+  .slide-down-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 300ms ease-out;
+  }
+
+  .submenu-animation-enter {
+    opacity: 0;
+    transform: scaleY(0.8);
+  }
+
+  .submenu-animation-enter-active {
+    opacity: 1;
+    transform: scaleY(1);
+    transition: all 250ms ease-in-out;
+  }
 }
 
 body {
@@ -268,4 +290,12 @@ body {
   100% {
     transform: translateX(0);
   }
+}
+
+.p-megamenu .p-submenu-header {
+  @apply font-normal;
+}
+
+.p-megamenu .p-megamenu-panel {
+  display: none !important;
 }

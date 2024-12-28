@@ -7,6 +7,8 @@ import Login from './pages/user/Login'
 import Layout from './pages/user/Layout'
 import Register from './pages/user/Register'
 import LoginRestaurant from './pages/restaurant/Login'
+import LayoutResto from './pages/restaurant/Layout'
+import Dashboard from './pages/restaurant/Dashboard'
 
 function App() {
   const [loading, setLoading] = useState(false)
@@ -38,6 +40,9 @@ function App() {
 
             {/** RESTAURANT */}
             <Route path="/login-restaurant" element={<LoginRestaurant />}></Route>
+            <Route path="/dashboard-resto" element={<LayoutResto />}>
+              <Route index element={<Dashboard />} />
+            </Route>
           </Routes>
           </BrowserRouter>
 
