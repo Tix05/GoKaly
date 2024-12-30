@@ -7,7 +7,7 @@ import { InputText } from "primereact/inputtext"
 import { Password } from "primereact/password"
 import { Button } from "primereact/button"
 import { Avatar } from "primereact/avatar"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { FaUserTie } from "react-icons/fa6"
 
 import bucky from "../../assets/brand/bucky.png"
@@ -17,6 +17,7 @@ const LoginRestaurant = () => {
     const [checked, setChecked] = useState(false)
     const [email, setEmail] = useState("")
     const [mdp, setMdp] = useState("")
+    const navigate = useNavigate()
 
     const langOptions = [
         { name: 'Français', code: 'FR' },
@@ -78,7 +79,7 @@ const LoginRestaurant = () => {
                         </FloatLabel>
                     </div>
 
-                    <Button label="Se connecter" className="bg-brick text-white font-poppins text-xs border border-none mt-7 mb-12 outline outline-none w-full py-2 px-5 rounded" />
+                    <Button onClick={() => navigate("/dashboard-resto")} label="Se connecter" className="bg-brick text-white font-poppins text-xs border border-none mt-7 mb-12 outline outline-none w-full py-2 px-5 rounded" />
                 </form>
 
             </div>
