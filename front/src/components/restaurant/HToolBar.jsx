@@ -1,14 +1,29 @@
 import PropTypes from "prop-types"
 import { InputText } from "primereact/inputtext"
 import { Button } from "primereact/button"
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { Toolbar } from 'primereact/toolbar'
 import { Avatar } from "primereact/avatar"
+import { TieredMenu } from 'primereact/tieredmenu'
+import SideBarChat from "./SideBarChat"
 
 import bucky from "../../assets/brand/bucky.png"
 
 const HToolBar = ({ collapsed, setCollapsed }) => {
     const [search, setSearch] = useState('')
+    const profileMenu = useRef(null)
+    const [visibleChat, setVisibleChat] = useState(false)
+
+    const profileItems = [
+        {
+            label: "Profil",
+            icon: "pi pi-user"
+        },
+        {
+            label: "Déconnexion",
+            icon: "pi pi-sign-out"
+        },
+    ]
 
     const handleCollapsed = () => {
         setCollapsed(!collapsed)
@@ -17,12 +32,18 @@ const HToolBar = ({ collapsed, setCollapsed }) => {
     const start = (
         <div className="flex flex-row space-x-4">
             <Button icon="pi pi-bell" title="Notifications" className="bg-transparent hover:bg-teal hover:text-white rounded-full text-blackPure border border-none outline outline-none" />
-            <Button icon="pi pi-envelope" title="Messages" className="bg-transparent hover:bg-teal hover:text-white rounded-full text-blackPure border border-none outline outline-none" />
+
+            <Button icon="pi pi-envelope" title="Messages" className="bg-transparent hover:bg-teal hover:text-white rounded-full text-blackPure border border-none outline outline-none" onClick={() => setVisibleChat(!visibleChat)} />
+            <SideBarChat visibleChat={visibleChat} setVisibleChat={setVisibleChat} />
         </div>
     )
 
     const end = (
-        <Avatar image={bucky} shape="circle" size="xlarge" className="p-1 border border-neutral-400 ms-8 cursor-pointer" title="Votre compte restaurateur" />
+        <>
+            <TieredMenu model={profileItems} popup ref={profileMenu} className="font-poppins text-xs" />
+            <Avatar image={bucky} shape="circle" size="xlarge" className="p-1 border border-neutral-400 ms-8 cursor-pointer" title="Votre compte restaurateur"
+                onClick={(e) => profileMenu.current.toggle(e)} />
+        </>
     )
 
     return (

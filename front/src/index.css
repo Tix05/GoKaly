@@ -296,6 +296,10 @@ body {
   @apply font-normal;
 }
 
+.p-sidebar-mask {
+  background-color: transparent !important;
+}
+
 .p-megamenu .p-megamenu-panel {
   display: none !important;
 }

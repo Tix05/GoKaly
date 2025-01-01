@@ -348,8 +348,8 @@ const VMenu = ({ collapsed, setCollapsed }) => {
                 ref={menuContainerRef}
                 className={`
                     fixed float-left z-10 
-                    ${collapsed ? 'w-[9vw]' : 'w-[21vw]'} 
-                    h-[100vh] 
+                    ${collapsed ? 'w-[9vw] h-full' : 'w-[21vw]'} 
+                    overflow-y-auto max-h-screen
                     overflow-hidden 
                     transition-all duration-300
                 `}
