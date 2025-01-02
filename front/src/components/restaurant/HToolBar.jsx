@@ -6,6 +6,7 @@ import { Toolbar } from 'primereact/toolbar'
 import { Avatar } from "primereact/avatar"
 import { TieredMenu } from 'primereact/tieredmenu'
 import SideBarChat from "./SideBarChat"
+import NotifPanel from "./NotifPanel"
 
 import bucky from "../../assets/brand/bucky.png"
 
@@ -13,6 +14,8 @@ const HToolBar = ({ collapsed, setCollapsed }) => {
     const [search, setSearch] = useState('')
     const profileMenu = useRef(null)
     const [visibleChat, setVisibleChat] = useState(false)
+    const [visibleNotif, setVisibleNotif] = useState(false)
+    const op = useRef(null)
 
     const profileItems = [
         {
@@ -31,7 +34,8 @@ const HToolBar = ({ collapsed, setCollapsed }) => {
 
     const start = (
         <div className="flex flex-row space-x-4">
-            <Button icon="pi pi-bell" title="Notifications" className="bg-transparent hover:bg-teal hover:text-white rounded-full text-blackPure border border-none outline outline-none" />
+            <Button icon="pi pi-bell" title="Notifications" className="bg-transparent hover:bg-teal hover:text-white rounded-full text-blackPure border border-none outline outline-none" onClick={(e) => op.current.toggle(e)} />
+            <NotifPanel op={op} visibleNotif={visibleNotif} setVisibleNotif={setVisibleNotif} />
 
             <Button icon="pi pi-envelope" title="Messages" className="bg-transparent hover:bg-teal hover:text-white rounded-full text-blackPure border border-none outline outline-none" onClick={() => setVisibleChat(!visibleChat)} />
             <SideBarChat visibleChat={visibleChat} setVisibleChat={setVisibleChat} />
@@ -61,7 +65,7 @@ const HToolBar = ({ collapsed, setCollapsed }) => {
             </div>
 
             <div className="p-inputgroup flex h-10 w-64 mt-2 rounded-3xl" style={{ border: '1px solid #D9D9D9' }}>
-                <InputText placeholder="Rechercher..." className="bg-transparent indent-3 w-20 h-10 font-poppins text-xs outline border border-none outline-none" />
+                <InputText value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Rechercher..." className="bg-transparent indent-3 w-20 h-10 font-poppins text-xs outline border border-none outline-none" />
                 <Button icon="pi pi-search" className="bg-transparent text-brick border border-none outline outline-none" />
             </div>
 
