@@ -333,3 +333,27 @@ body {
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background-color: rgba(156, 163, 175, 0.3);
 }
+
+.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  @apply text-teal;
+  @apply border-teal;
+}
+
+.p-tabview .p-tabview-nav .p-tabview-nav-link {
+  @apply font-light;
+}
+
+.p-dropdown .p-dropdown-label {
+  @apply text-xs;
+  @apply font-poppins;
+  @apply mt-1;
+}
+
+.p-dropdown-trigger {
+  @apply text-xs;
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled).p-focus {
+  @apply text-teal;
+}
+

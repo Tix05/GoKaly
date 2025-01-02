@@ -7,7 +7,7 @@ import driver from "../../assets/driver.jpeg"
 const NotifPanel = ({ op, visibleNotif, setVisibleNotif }) => {
     const notifItems = [
         {
-            label: "Une nouvelle commande a been reçue : Commande #12456 de Jean Dupont",
+            label: "Une nouvelle commande a été reçue : Commande #12456 de Jean Dupont",
             icon: "pi pi-receipt",
             time: "il y a 1 min"
         },
