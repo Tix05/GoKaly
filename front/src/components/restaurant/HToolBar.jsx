@@ -52,7 +52,7 @@ const HToolBar = ({ collapsed, setCollapsed }) => {
 
     return (
         <header
-            className={`bg-neutral-50 shadow flex flex-row justify-start pt-2 ${collapsed ? 'space-x-72' : 'space-x-40'} fixed top-0 right-0 h-20 transition-all duration-300`}
+            className={`bg-neutral-50 shadow flex flex-row justify-start pt-2 ${collapsed ? 'space-x-72' : 'space-x-40'} fixed top-0 right-0 h-20 z-20 transition-all duration-300`}
             style={{
                 width: `calc(100% - ${collapsed ? '4rem' : '270px'})`,
                 marginLeft: collapsed ? '4rem' : '270px',

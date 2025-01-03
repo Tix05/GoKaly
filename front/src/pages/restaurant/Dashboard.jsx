@@ -3,6 +3,8 @@ import { useOutletContext } from "react-router-dom"
 import CardStat from "../../components/restaurant/CardStat"
 import RevenueSumContainer from "../../components/restaurant/RevenueSumContainer"
 import OrderSumContainer from "../../components/restaurant/OrderSumContainer"
+import FavMenuContainer from "../../components/restaurant/FavMenuContainer"
+import RecentOrderContainer from "../../components/restaurant/RecentOrderContainer"
 
 const Dashboard = () => {
     const { collapsed } = useOutletContext()
@@ -36,7 +38,7 @@ const Dashboard = () => {
     ]
 
     return (
-        <div className={`mt-24`}
+        <div className={`mt-24 mb-8`}
             style={{
                 width: `calc(100% - ${collapsed ? '5rem' : '280px'})`,
                 marginLeft: collapsed ? '5rem' : '280px',
@@ -47,6 +49,11 @@ const Dashboard = () => {
             <div className="mt-6 grid grid-cols-2 gap-x-4">
                 <RevenueSumContainer />
                 <OrderSumContainer />
+            </div>
+
+            <div className="mt-6 grid grid-cols-[57.5%_40%] gap-x-6">
+                <RecentOrderContainer />
+                <FavMenuContainer />
             </div>
         </div>
     )

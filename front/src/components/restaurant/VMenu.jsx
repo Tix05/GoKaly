@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef, useEffect } from 'react'
+import { useState, useCallback, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { MegaMenu } from 'primereact/megamenu'
 import { Avatar } from 'primereact/avatar'
@@ -343,7 +343,7 @@ const VMenu = ({ collapsed, setCollapsed }) => {
     ]
 
     return (
-        <div className="flex">
+        <div className="flex z-30">
             <div
                 ref={menuContainerRef}
                 className={`
