@@ -33,11 +33,13 @@ import machu from "../../assets/brand/machu.png"
 import colbert from "../../assets/brand/colbert.png"
 import caramiel from "../../assets/brand/caramiel.png"
 import bread from "../../assets/brand/bread.png"
+import { useNavigate } from "react-router-dom"
 
 const Home = () => {
   const { t } = useLanguage()
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const bannerImages = [banner, banner1, banner2, banner3]
+  const navigate = useNavigate()
 
   const restos = [
     {
@@ -167,7 +169,7 @@ const Home = () => {
         ease: 'easeInOut',
       },
     },
-  };
+  }
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -208,7 +210,9 @@ const Home = () => {
               </p>
               <Button
                 label={t('homeDiscover')}
+                title="Explorer les restaurants à proximité"
                 className="font-poppins text-sm border border-none outline outline-none bg-brick text-white rounded-3xl py-2 px-12 shadow mt-8"
+                onClick={() => navigate('/explore-resto')}
               />
             </div>
 

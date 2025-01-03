@@ -5,10 +5,23 @@ import { Button } from 'primereact/button'
 import logo from "../../assets/logo.png"
 import { useLanguage } from '../../utils/LangConfig'
 import { useNavigate } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import { Avatar } from 'primereact/avatar'
+import { useRef } from 'react'
+import { TieredMenu } from 'primereact/tieredmenu'
 
-const HMenu = () => {
+import driver from "../../assets/driver.jpeg"
+
+const HMenu = ({ logged, setLogged }) => {
   const { t, language, switchLanguage } = useLanguage()
   const navigate = useNavigate()
+  const menu = useRef(null)
+
+  const items = [
+    { label: "Profil", icon: "pi pi-user" },
+    { label: "Paramètres", icon: "pi pi-cog" },
+    { label: "Déconnexion", icon: "pi pi-sign-out" },
+  ]
 
   const langOptions = [
     { name: 'Français', code: 'FR' },
@@ -49,7 +62,7 @@ const HMenu = () => {
   )
 
   const end = (
-    <div className="flex flex-row space-x-4">
+    <div className={`flex flex-row space-x-4 ${logged ? "mt-2" : ""}`}>
       <div className='cursor-pointer' title={t('menuSearch')}>
         <i className="pi pi-search me-4"></i>
       </div>
@@ -67,9 +80,18 @@ const HMenu = () => {
         />
       </div>
 
-      <div className="">
-        <Button label={t('menuLogin')} className="font-poppins -mt-[0.125rem] h-7 text-xs bg-brick border border-none outline outline-none" onClick={() => navigate("/login")} />
-      </div>
+      {logged ? (
+        <div className="flex flex-row space-x-10">
+          <i className="pi pi-bell ms-6"></i>
+          <Avatar image={driver} shape='circle' size='large' className="-mt-4 cursor-pointer" title="Votre compte" onClick={(e) => menu.current.toggle(e)} />
+          <TieredMenu model={items} popup ref={menu} className="text-xs font-poppins w-40" />
+        </div>
+      ) : (
+        <div className="">
+          <Button label={t('menuLogin')} className="font-poppins -mt-[0.125rem] h-7 text-xs bg-brick border border-none outline outline-none" onClick={() => navigate("/login")} />
+        </div>
+      )}
+
     </div>
   )
 
@@ -78,6 +100,11 @@ const HMenu = () => {
       <Menubar start={start} end={end} model={menuItems} className="custom-menubar font-poppins text-xs" />
     </header>
   )
+}
+
+HMenu.propTypes = {
+  logged: PropTypes.bool.isRequired,
+  setLogged: PropTypes.func.isRequired
 }
 
 export default HMenu

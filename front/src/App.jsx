@@ -9,6 +9,7 @@ import Register from './pages/user/Register'
 import LoginRestaurant from './pages/restaurant/Login'
 import LayoutResto from './pages/restaurant/Layout'
 import Dashboard from './pages/restaurant/Dashboard'
+import ExploreResto from './pages/user/ExploreResto'
 
 function App() {
   const [loading, setLoading] = useState(false)
@@ -36,6 +37,7 @@ function App() {
               <Route index element={<Home />} />
               <Route index path='login' element={<Login />} />
               <Route index path='register' element={<Register />} />
+              <Route index path='explore-resto' element={<ExploreResto />} />
             </Route>
 
             {/** RESTAURANT */}

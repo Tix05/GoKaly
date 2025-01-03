@@ -357,3 +357,7 @@ body {
   @apply text-teal;
 }
 
+.p-paginator .p-paginator-pages .p-paginator-page {
+  @apply font-poppins;
+}
+

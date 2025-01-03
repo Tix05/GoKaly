@@ -7,12 +7,19 @@ import { Password } from "primereact/password"
 import { Checkbox } from 'primereact/checkbox'
 import { Button } from 'primereact/button'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useOutletContext, useNavigate } from 'react-router-dom'
 
 const Login = () => {
     const [email, setEmail] = useState("")
     const [checked, setChecked] = useState(false)
     const [mdp, setMdp] = useState("")
+    const { setLogged } = useOutletContext()
+    const navigate = useNavigate()
+
+    const handleLogin = (e) => {
+        e.preventDefault
+        setLogged(true)
+    }
 
     return (
         <div className="container p-4 w-[35vw] bg-neutral-100 shadow-lg rounded mx-auto flex flex-col justify-center items-center mt-32 mb-16">
@@ -61,7 +68,7 @@ const Login = () => {
                     <Link to="" className="text-[0.7rem] text-black -mt-3"><p>Mot de passe oublié ?</p></Link>
                 </div>
 
-                <Button label="Se connecter" className="bg-brick text-white font-poppins text-xs border border-none mt-7 outline outline-none w-full py-2 px-5 rounded" />
+                <Button label="Se connecter" className="bg-brick text-white font-poppins text-xs border border-none mt-7 outline outline-none w-full py-2 px-5 rounded" onClick={handleLogin} />
             </form>
 
             <p className='mt-8 mb-4 text-[0.65rem]'>Vous n'avez pas encore de compte ? <Link to="/register" className='text-brick font-semibold'>S'inscrire</Link></p>
