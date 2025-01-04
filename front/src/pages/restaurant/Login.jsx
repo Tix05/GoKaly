@@ -79,7 +79,7 @@ const LoginRestaurant = () => {
                         </FloatLabel>
                     </div>
 
-                    <Button onClick={() => navigate("/dashboard-resto")} label="Se connecter" className="bg-brick text-white font-poppins text-xs border border-none mt-7 mb-12 outline outline-none w-full py-2 px-5 rounded" />
+                    <Button onClick={() => navigate("/restaurant/dashboard")} label="Se connecter" className="bg-brick text-white font-poppins text-xs border border-none mt-7 mb-12 outline outline-none w-full py-2 px-5 rounded" />
                 </form>
 
             </div>

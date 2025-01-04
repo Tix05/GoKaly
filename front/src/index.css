@@ -361,3 +361,31 @@ body {
   @apply font-poppins;
 }
 
+.custom-review-paginator .p-paginator-page {
+  @apply font-poppins text-xs;
+}
+
+.review-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(115, 115, 115, 0.3) transparent;
+  padding-right: 44px; 
+}
+
+.review-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  background-color: transparent;
+  position: absolute;
+  right: 0;
+}
+
+.review-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(115, 115, 115, 0.3);
+  border-radius: 3px;
+}
+
+.review-scrollbar::-webkit-scrollbar-track {
+  background-color: transparent;
+  position: absolute;
+  right: 0;
+}
+
