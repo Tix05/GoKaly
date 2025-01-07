@@ -96,7 +96,7 @@ const HMenu = ({ logged, setLogged }) => {
   )
 
   return (
-    <header className="bg-white shadow-md px-40 fixed w-full z-10">
+    <header className="bg-white shadow-md px-40 fixed w-full z-50">
       <Menubar start={start} end={end} model={menuItems} className="custom-menubar font-poppins text-xs" />
     </header>
   )

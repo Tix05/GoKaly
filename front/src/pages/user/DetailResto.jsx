@@ -12,7 +12,10 @@ import { Button } from "primereact/button"
 import { Link } from "react-router-dom"
 import { GiPathDistance } from "react-icons/gi"
 import LeafletMap from '../../utils/LeafletMap'
+import CardMenu from "../../components/user/resto/CardMenu"
 
+import crevette from "../../assets/tendm/crevette.jpg"
+import tipan from "../../assets/tendm/tipan.jpg"
 import lieu from '../../assets/tendm/lieu.jpg'
 import tendm from '../../assets/brand/tendm.png'
 
@@ -37,6 +40,37 @@ const DetailResto = () => {
             },
         },
     }
+
+    const menus = [
+        {
+            id: 1,
+            title : "Crevette à la mayonnaise",
+            category : "Fruits de mer",
+            price : "20 000 Ar",
+            imgMenu : crevette 
+        },
+        {
+            id: 2,
+            title : "Tipan",
+            category : "Variétés",
+            price : "20 000 Ar",
+            imgMenu : tipan, 
+        },
+        {
+            id: 3,
+            title : "Tipan",
+            category : "Variétés",
+            price : "20 000 Ar",
+            imgMenu : tipan, 
+        },
+        {
+            id: 4,
+            title : "Crevettes sautés au légumes",
+            category : "Variétés",
+            price : "20 000 Ar",
+            imgMenu : tipan, 
+        },
+    ]
 
     const [showMore, setShowMore] = useState(false)
 
@@ -98,41 +132,39 @@ const DetailResto = () => {
         </section>
 
         <section className="px-40 pt-3 grid grid-cols-2"> 
-            <div className = "relative -mt-2">
-                <div className="-z-10">
+            <div className="relative -mt-2 z-10">
+                <div className="relative">
                     <img src={lieu} alt="Lieu Tend M" className="w-[80%] h-[25rem] object-fit" style={{borderStartEndRadius : "5rem", borderEndEndRadius : "5rem"}}/>
-                </div>
-                <div className = "absolute top-12 left-80">
-                    <img src={tendm} alt="TEND M" className = "rounded-full w-40 h-40" style = {{border : "solid 5px white"}}/>
-                </div>
-                <div className="absolute top-0 left-0 bg-gray-500 bg-opacity-70 px-3 py-2 rounded-lg cursor-pointer" title = "Voir la galerie">
-                    <i className="text-lg pi pi-camera text-neutral-200"></i>
-                </div>
-                <div className ="absolute top-52 bg-gray-500 bg-opacity-70 left-0 flex flex-col items-center justify-center p-1 gap-3 shadow-lg rounded-md w-fit">
-                    <Link to ="" className="flex items-center no-underline justify-center bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white w-12 h-12 rounded-full transform transition duration-300 hover:scale-110 hover:rotate-12">
-                        <i className="pi pi-facebook text-xl"></i>
-                    </Link>
-
-                    <Link to ="" className="flex items-center no-underline justify-center bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white w-12 h-12 rounded-full transform transition duration-300 hover:scale-110 hover:rotate-12">
-                        <i className="pi pi-instagram text-xl"></i>
-                    </Link>
-
-                    <Link to ="" className="flex items-center no-underline justify-center bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white w-12 h-12 rounded-full transform transition duration-300 hover:scale-110 hover:rotate-12">
-                        <i className="pi pi-phone text-xl hover:scale-105"></i>
-                    </Link>
-                </div>
-                <div className="grid grid-cols-2 gap-x-4 absolute top-[52.5%] left-32">
-                    <div className = "bg-white flex flex-col shadow-lg rounded-xl pt-4 pb-2 w-28" title = "Distance vous séparant : 15 - 120 min">
-                        <GiPathDistance className="text-3xl opacity-75 flex justify-center items-center m-auto"/>
-                        <p className = "text-center">15 - 120 min</p>
+                    <div className="absolute top-12 left-80">
+                        <img src={tendm} alt="TEND M" className="rounded-full w-40 h-40" style={{border: "solid 5px white"}}/>
                     </div>
-                    <div className = "bg-white flex flex-col shadow-lg rounded-xl pt-4 pb-2 w-28" title = "Actuellement ouvert">
-                        <i className = "text-center text-lg pi pi-circle-fill text-teal mt-1"></i>
-                        <p className = "text-center mt-5">Ouvert</p>
+                    <div className="absolute top-0 left-0 bg-gray-500 bg-opacity-70 px-3 py-2 rounded-lg cursor-pointer" title="Voir la galerie">
+                        <i className="text-lg pi pi-camera text-neutral-200"></i>
                     </div>
-                </div>
-                <div className="pt-28">
-                    <LeafletMap />
+                    <div className="absolute top-52 bg-gray-500 bg-opacity-70 left-0 flex flex-col items-center justify-center p-1 gap-3 shadow-lg rounded-md w-fit">
+                        <Link to="" className="flex items-center no-underline justify-center bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white w-12 h-12 rounded-full transform transition duration-300 hover:scale-110 hover:rotate-12">
+                            <i className="pi pi-facebook text-xl"></i>
+                        </Link>
+                        <Link to="" className="flex items-center no-underline justify-center bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white w-12 h-12 rounded-full transform transition duration-300 hover:scale-110 hover:rotate-12">
+                            <i className="pi pi-instagram text-xl"></i>
+                        </Link>
+                        <Link to="" className="flex items-center no-underline justify-center bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white w-12 h-12 rounded-full transform transition duration-300 hover:scale-110 hover:rotate-12">
+                            <i className="pi pi-phone text-xl hover:scale-105"></i>
+                        </Link>
+                    </div>
+                    <div className="grid grid-cols-2 gap-x-4 absolute top-[50%] left-32">
+                        <div className="bg-white flex flex-col shadow-lg rounded-xl pt-4 pb-2 w-28" title="Distance vous séparant : 15 - 120 min">
+                            <GiPathDistance className="text-3xl opacity-75 flex justify-center items-center m-auto"/>
+                            <p className="text-center">15 - 120 min</p>
+                        </div>
+                        <div className="bg-white flex flex-col shadow-lg rounded-xl pt-4 pb-2 w-28" title="Actuellement ouvert">
+                            <i className="text-center text-lg pi pi-circle-fill text-teal mt-1"></i>
+                            <p className="text-center mt-5">Ouvert</p>
+                        </div>
+                    </div>
+                    <div className="pt-28">
+                        <LeafletMap />
+                    </div>
                 </div>
             </div>
 
@@ -214,6 +246,15 @@ const DetailResto = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section className = "px-40 pt-8">
+            <h3 className = "text-3xl font-satisfy">Explorez les menus du restaurant</h3>
+            <div className = "grid grid-cols-3 gap-x-2 gap-y-6">
+                {menus.map((menu) => (
+                    <CardMenu key={menu.id} menu={menu}/>
+                ))}
             </div>
         </section>
 

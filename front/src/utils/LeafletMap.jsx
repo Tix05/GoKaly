@@ -6,7 +6,7 @@ const LeafletMap = () => {
 
     return (
         <>
-             <MapContainer center={position} zoom={13} style={{ height: "235px", width: "80%" }}>
+             <MapContainer center={position} zoom={13} style={{ height: "235px", width: "80%", zIndex:"40" }}>
              <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     attribution='&copy <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
