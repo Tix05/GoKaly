@@ -387,5 +387,13 @@ body {
   background-color: transparent;
   position: absolute;
   right: 0;
+} 
+
+.p-breadcrumb {
+  @apply font-poppins;
+  @apply text-xs;
+  @apply border border-transparent;
+  @apply bg-transparent;
+  @apply -mt-4;
 }
 

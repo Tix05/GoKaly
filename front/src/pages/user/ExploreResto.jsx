@@ -1,12 +1,11 @@
-import { InputText } from "primereact/inputtext"
-import { Button } from "primereact/button"
 import { motion } from "framer-motion"
 import { useState, useRef } from "react"
 import BannerMobile from "../../components/user/Homepage/BannerMobile"
 import { Dropdown } from 'primereact/dropdown'
 import { TieredMenu } from 'primereact/tieredmenu'
 import { Paginator } from 'primereact/paginator'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import BannerSearch from "../../components/user/resto/BannerSearch"
 
 import tendm from "../../assets/brand/tendm.png"
 import brew from "../../assets/brand/brew.png"
@@ -18,7 +17,6 @@ import caramiel from "../../assets/brand/caramiel.png"
 import bread from "../../assets/brand/bread.png"
 import saka from "../../assets/brand/saka-express.png"
 
-import location from "../../assets/icons/location.png"
 import DoubleBanner from "../../components/user/Homepage/DoubleBanner"
 
 const ExploreResto = () => {
@@ -27,6 +25,7 @@ const ExploreResto = () => {
     const [selectedSpecialty, setSelectedSpecialty] = useState(null)
     const [selectedEtablishment, setSelectedEtablishment] = useState(null)
     const menu = useRef(null)
+    const navigate = useNavigate()
 
     const renderStars = (rating) => {
         const stars = []
@@ -191,22 +190,7 @@ const ExploreResto = () => {
 
     return (
         <div className="space-y-8 mt-20 mb-16">
-            <div className="bg-neutral-800 h-80 flex flex-row justify-between px-36">
-                <div className="pt-6 ps-10">
-                    <h1 className="text-4xl font-satisfy text-white w-[70%]">Découvrez les restaurants à proximité !</h1>
-                    <p className="text-xs text-white opacity-80 w-[75%]">GoKaly vous permet de découvrir les restaurants les plus proches de vous, que vous soyez dans une grande ville ou dans un petit village.</p>
-
-                    <div className="p-inputgroup flex-1 mt-10 w-[65%] h-12">
-                        <Button icon="pi pi-map-marker" className="border border-none outline text-sm font-poppins outline-none bg-teal text-white" title="Localiser sur la carte" />
-                        <InputText placeholder="Rechercher un restaurant..." className="font-poppins text-xs" />
-                        <Button icon="pi pi-search" label="Rechercher" className="border border-none outline text-sm font-poppins outline-none bg-teal text-white" />
-                    </div>
-                </div>
-
-                <div className="mt-8">
-                    <img src={location} alt="Location" className="w-80 h-64" />
-                </div>
-            </div>
+            <BannerSearch/>
 
             <div className="flex flex-row justify-between px-44 pt-6">
                 <div className="flex flex-row justify-start space-x-3">
@@ -232,7 +216,7 @@ const ExploreResto = () => {
                         key={`${resto.id}-${index}`}
                         className="restaurant-carousel-item mx-4"
                     >
-                        <div className="bg-white rounded shadow-lg restaurant-card">
+                        <div className="bg-white rounded shadow-lg restaurant-card cursor-pointer" onClick={() => navigate('/detail-resto')}>
                             <div className="restaurant-image-container">
                                 <img src={resto.image} alt={resto.nom} className="w-24 h-16" />
                             </div>

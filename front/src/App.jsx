@@ -10,6 +10,7 @@ import LoginRestaurant from './pages/restaurant/Login'
 import LayoutResto from './pages/restaurant/Layout'
 import Dashboard from './pages/restaurant/Dashboard'
 import ExploreResto from './pages/user/ExploreResto'
+import DetailResto from './pages/user/DetailResto'
 import Review from './pages/restaurant/Review'
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
               <Route index path='login' element={<Login />} />
               <Route index path='register' element={<Register />} />
               <Route index path='explore-resto' element={<ExploreResto />} />
+              <Route index path='detail-resto' element={<DetailResto />} />
             </Route>
 
             {/** RESTAURANT */}
