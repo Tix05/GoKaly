@@ -432,3 +432,55 @@ body {
   padding: 1rem;
 }
 
+.bookTable-image-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 45%;
+  height: 100%;
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 2rem;
+}
+
+.booktable-card {
+  position: relative;
+  overflow: hidden;
+  height: 28rem;
+}
+
+.booktable-content-container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 60%;
+  height: 100%;
+  background: white;
+  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 7rem;
+  padding-right : 2rem;
+}
+
+.p-datepicker table td > span, .p-datepicker table th > span {
+  width : 2rem !important;
+  height : 2rem !important;
+  @apply text-xs;
+}
+
+.p-datepicker table td.p-datepicker-today > span {
+  @apply bg-teal;
+  @apply text-white;
+}
+
+.p-datepicker .p-timepicker span {
+  @apply text-sm;
+}
+
+.p-calendar:not(.p-calendar-disabled).p-focus > .p-inputtext {
+  @apply font-poppins;
+}

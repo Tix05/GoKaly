@@ -13,6 +13,7 @@ import { Link } from "react-router-dom"
 import { GiPathDistance } from "react-icons/gi"
 import LeafletMap from '../../utils/LeafletMap'
 import CardMenu from "../../components/user/resto/CardMenu"
+import BookTableContainer from "../../components/user/resto/BookTableContainer"
 
 import crevette from "../../assets/tendm/crevette.jpg"
 import tipan from "../../assets/tendm/tipan.jpg"
@@ -250,7 +251,11 @@ const DetailResto = () => {
         </section>
 
         <section className = "px-40 pt-8">
-            <h3 className = "text-3xl font-satisfy">Explorez les menus du restaurant</h3>
+            <div className = "flex justify-between">
+                <h3 className = "text-3xl font-satisfy">Explorez les menus du restaurant</h3>
+                <Button label = "Consulter la carte" icon = "pi pi-clipboard" className = "hover:bg-brick bg-transparent hover:text-white font-poppins text-xs border border-brick text-brick outline outline-none h-10 mt-6"/>
+            </div>
+            
             <div className = "grid grid-cols-3 gap-x-2 gap-y-6">
                 {menus.map((menu) => (
                     <CardMenu key={menu.id} menu={menu}/>
@@ -258,15 +263,27 @@ const DetailResto = () => {
             </div>
         </section>
 
-         <section className="px-40 pt-8">
+        <section className="px-40 pt-12">
             <DoubleBanner />
         </section>
+
+        <motion.section
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={sectionVariants}
+            className = "px-40 pt-16"
+        >
+            <BookTableContainer/>
+        </motion.section>
+
 
         <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={sectionVariants}
+            className="pt-8"
         >
             <BannerMobile />
         </motion.div>
