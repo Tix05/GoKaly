@@ -13,12 +13,16 @@ import { Link } from "react-router-dom"
 import { GiPathDistance } from "react-icons/gi"
 import LeafletMap from '../../utils/LeafletMap'
 import CardMenu from "../../components/user/resto/CardMenu"
-import BookTableContainer from "../../components/user/resto/BookTableContainer"
 
 import crevette from "../../assets/tendm/crevette.jpg"
 import tipan from "../../assets/tendm/tipan.jpg"
+import andry from "../../assets/tendm/andry.jpeg"
+import endgame from "../../assets/tendm/endgame.jpeg"
+import sandra from "../../assets/tendm/sandra.jpeg"
+import tornado from "../../assets/tendm/tornado.jpeg"
 import lieu from '../../assets/tendm/lieu.jpg'
 import tendm from '../../assets/brand/tendm.png'
+import BookTableContainer from "../../components/user/resto/BookTableContainer"
 
 const DetailResto = () => {
     const items = [{ label: 'Tend M'},]
@@ -59,17 +63,31 @@ const DetailResto = () => {
         },
         {
             id: 3,
-            title : "Tipan",
-            category : "Variétés",
-            price : "20 000 Ar",
-            imgMenu : tipan, 
+            title : "Andry",
+            category : "Fruits de mer",
+            price : "22 000 Ar",
+            imgMenu : andry, 
         },
         {
             id: 4,
-            title : "Crevettes sautés au légumes",
+            title : "Endgame",
             category : "Variétés",
-            price : "20 000 Ar",
-            imgMenu : tipan, 
+            price : "30 000 Ar",
+            imgMenu : endgame, 
+        },
+        {
+            id: 5,
+            title : "Sandra",
+            category : "Fruits de mer",
+            price : "18 000 Ar",
+            imgMenu : sandra, 
+        },
+        {
+            id: 6,
+            title : "Tornado Burger sans porc",
+            category : "Burger",
+            price : "14 000 Ar",
+            imgMenu : tornado, 
         },
     ]
 
@@ -250,40 +268,38 @@ const DetailResto = () => {
             </div>
         </section>
 
-        <section className = "px-40 pt-8">
-            <div className = "flex justify-between">
-                <h3 className = "text-3xl font-satisfy">Explorez les menus du restaurant</h3>
-                <Button label = "Consulter la carte" icon = "pi pi-clipboard" className = "hover:bg-brick bg-transparent hover:text-white font-poppins text-xs border border-brick text-brick outline outline-none h-10 mt-6"/>
+        <section className = "px-40 pt-12">
+            <div className="flex justify-between">
+            <h3 className = "text-3xl font-satisfy">Explorez les menus du restaurant</h3>
+            <Button label="Consulter la carte" icon = "pi pi-clipboard" className = "font-poppins text-xs bg-transparent text-brick hover:bg-brick border border-brick h-10 mt-8 outline outline-none hover:text-white"/>
             </div>
             
-            <div className = "grid grid-cols-3 gap-x-2 gap-y-6">
+            <div className = "grid grid-cols-3 gap-x-2 gap-y-6 mt-4">
                 {menus.map((menu) => (
                     <CardMenu key={menu.id} menu={menu}/>
                 ))}
             </div>
         </section>
 
-        <section className="px-40 pt-12">
+         <section className="px-40 pt-16">
             <DoubleBanner />
         </section>
 
-        <motion.section
+        <motion.div
             initial="hidden"
             whileInView="visible"
+            className="pt-20 px-40"
             viewport={{ once: true, amount: 0.2 }}
             variants={sectionVariants}
-            className = "px-40 pt-16"
         >
-            <BookTableContainer/>
-        </motion.section>
-
+            <BookTableContainer />
+        </motion.div>
 
         <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={sectionVariants}
-            className="pt-8"
         >
             <BannerMobile />
         </motion.div>
