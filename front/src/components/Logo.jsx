@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
-import logo from '../assets/logo.png'
+import logo from '../assets/logo-white.png'
 
 const Logo = ({ className }) => {
     return (
-        <img src={logo} alt="GoKaly" className={`w-28 h-28 ${className}`} />
+        <img src={logo} alt="GoKaly" className={`${className}`} />
     )
 }
 

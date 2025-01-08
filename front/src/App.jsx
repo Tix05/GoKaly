@@ -2,14 +2,16 @@ import './index.css'
 import { useEffect, useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-
-import Homepage from './pages/user/Homepage'
-import LoginAdmin from './pages/admin/LoginAdmin'
-import Dashboard from './pages/admin/Dashboard'
-import HomeRegister from './pages/user/HomeRegister'
-import EmailRegister from './pages/user/EmailRegister'
-import PasswordRegister from './pages/user/PasswordRegister'
-import InfoRegister from './pages/user/InfoRegister'
+import Home from './pages/user/Home'
+import Login from './pages/user/Login'
+import Layout from './pages/user/Layout'
+import Register from './pages/user/Register'
+import LoginRestaurant from './pages/restaurant/Login'
+import LayoutResto from './pages/restaurant/Layout'
+import Dashboard from './pages/restaurant/Dashboard'
+import ExploreResto from './pages/user/ExploreResto'
+import DetailResto from './pages/user/DetailResto'
+import Review from './pages/restaurant/Review'
 
 function App() {
   const [loading, setLoading] = useState(false)
@@ -31,19 +33,23 @@ function App() {
     <>
       <AnimatePresence>
         <body className='min-h-screen'>
-          <BrowserRouter>
-            <Routes>
-              {/* ======= USER ========= */}
-              <Route path="/" element={<Homepage />} />
-              <Route path="/home-register" element={<HomeRegister />} />
-              <Route path="/email-register" element={<EmailRegister />} />
-              <Route path="/password-register" element={<PasswordRegister />} />
-              <Route path="/info-register" element={<InfoRegister />} />
+          <BrowserRouter><Routes>
+            {/** USER */}
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route index path='login' element={<Login />} />
+              <Route index path='register' element={<Register />} />
+              <Route index path='explore-resto' element={<ExploreResto />} />
+              <Route index path='detail-resto' element={<DetailResto />} />
+            </Route>
 
-              {/* ======= ADMIN ========= */}
-              <Route path="/login-admin" element={<LoginAdmin />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-            </Routes>
+            {/** RESTAURANT */}
+            <Route path="/login-restaurant" element={<LoginRestaurant />}></Route>
+            <Route path="/restaurant" element={<LayoutResto />}>
+              <Route index path="/restaurant/dashboard" element={<Dashboard />} />
+              <Route index path='/restaurant/review' element={<Review />} />
+            </Route>
+          </Routes>
           </BrowserRouter>
 
         </body>
