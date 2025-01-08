@@ -23,6 +23,7 @@ import tornado from "../../assets/tendm/tornado.jpeg"
 import lieu from '../../assets/tendm/lieu.jpg'
 import tendm from '../../assets/brand/tendm.png'
 import BookTableContainer from "../../components/user/resto/BookTableContainer"
+import TrendBlogContainer from "../../components/user/resto/TrendBlogContainer"
 
 const DetailResto = () => {
     const items = [{ label: 'Tend M'},]
@@ -293,6 +294,16 @@ const DetailResto = () => {
             variants={sectionVariants}
         >
             <BookTableContainer />
+        </motion.div>
+
+        <motion.div
+            initial="hidden"
+            whileInView="visible"
+            className="pt-10 px-40"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={sectionVariants}
+        >
+            <TrendBlogContainer/>
         </motion.div>
 
         <motion.div
