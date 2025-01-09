@@ -298,7 +298,7 @@ const VMenu = ({ collapsed, setCollapsed }) => {
             template: itemRenderer,
             url: '/dashboard',
             items: [
-                { label: 'Commande', icon: 'pi pi-receipt', url: '/dashboard' },
+                { label: 'Commande', icon: 'pi pi-receipt', url: '/restaurant/order-list' },
                 { label: 'Réservation de table', icon: 'pi pi-address-book', url: '/dashboard' },
                 { label: 'Livraison', icon: 'pi pi-truck', url: '/dashboard' },
                 { label: 'Facture', icon: 'pi pi-ticket', url: '/dashboard' },

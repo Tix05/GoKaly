@@ -12,6 +12,7 @@ import Dashboard from './pages/restaurant/Dashboard'
 import ExploreResto from './pages/user/ExploreResto'
 import DetailResto from './pages/user/DetailResto'
 import Review from './pages/restaurant/Review'
+import OrderList from './pages/restaurant/OrderList'
 
 function App() {
   const [loading, setLoading] = useState(false)
@@ -48,6 +49,7 @@ function App() {
             <Route path="/restaurant" element={<LayoutResto />}>
               <Route index path="/restaurant/dashboard" element={<Dashboard />} />
               <Route index path='/restaurant/review' element={<Review />} />
+              <Route index path='/restaurant/order-list' element={<OrderList />} />
             </Route>
           </Routes>
           </BrowserRouter>

@@ -484,3 +484,8 @@ body {
 .p-calendar:not(.p-calendar-disabled).p-focus > .p-inputtext {
   @apply font-poppins;
 }
+
+.p-datatable .p-datatable-footer {
+  @apply font-poppins;
+  @apply text-xs;
+}
