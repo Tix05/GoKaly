@@ -1,3 +1,491 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@layer tailwind-base, primereact, tailwind-utilities;
+
+@layer tailwind-base {
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-Regular.ttf');
+  }
+
+  @font-face {
+    font-family: 'Kanit';
+    src: url('/fonts/Kanit/Kanit-Regular.ttf');
+  }
+
+  @font-face {
+    font-family: 'Satisfy';
+    src: url('/fonts/Satisfy/Satisfy-Regular.ttf');
+  }
+}
+
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+
+  .slide-down-enter {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  
+  .slide-down-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 300ms ease-out;
+  }
+
+  .submenu-animation-enter {
+    opacity: 0;
+    transform: scaleY(0.8);
+  }
+
+  .submenu-animation-enter-active {
+    opacity: 1;
+    transform: scaleY(1);
+    transition: all 250ms ease-in-out;
+  }
+}
+
+body {
+  @apply font-poppins;
+  @apply text-xs;
+  margin : 0;
+}
+
+.custom-p-dropdown .p-dropdown-label {
+  @apply text-xs;
+  @apply font-poppins;
+  @apply text-white;
+}
+
+.custom-p-dropdown2 .p-dropdown-label {
+  @apply text-xs;
+  @apply font-poppins;
+  @apply mt-1;
+}
+ 
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+  @apply text-white;
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled).p-focus {
+  background : transparent ! important;
+  @apply text-white;
+}
+
+  .custom-menubar {
+    background-color: transparent !important;
+    border : none !important;
+  }
+  
+  .custom-menubar .p-menubar {
+  background-color: transparent !important;
+  }
+  
+  .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
+    color : black !important;
+  }
+  
+  .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text:hover {
+    background-color : transparent !important;
+  }
+  
+  .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content:hover {
+    background-color : transparent !important;
+    text-decoration : underline 2px black !important;
+    text-underline-offset : 12px;
+  }
+
+.triple-border-container {
+  position: relative;
+  border-radius: 50%;
+  width: 18rem;
+  height: 18rem;
+}
+
+.double-white-border {
+  position: relative;
+  border-radius: 50%;
+  width: 8rem;
+  height: 8rem;
+}
+
+.triple-border-container::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 10px solid transparent;
+  border-left-color: #A54E2B;
+  border-top-color: #2DD4BF;
+  border-right-color: #FFF;
+  animation: spin 60s linear infinite;
+}
+
+.double-white-border::before {
+  content: '';
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  border-left-color: #FFF;
+  border-right-color: #FFF;
+  animation: spin 60s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.banner-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.banner-slide.active {
+  opacity: 1;
+}
+
+.custom-border-card {
+  border : 1px solid rgb(0, 0, 0, 0.125) !important;
+}
+
+.restaurant-card {
+  position: relative;
+  overflow: hidden;
+  height: 9rem;
+}
+
+.restaurant-image-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 45%;
+  height: 100%;
+  background: #CC4831;
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 2rem;
+}
+
+.restaurant-content-container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 65%;
+  height: 100%;
+  background: white;
+  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 3rem;
+}
+
+.restaurant-carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.restaurant-carousel-inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.restaurant-carousel-item {
+  width: 100%;
+  animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.carousel-arrow {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.carousel-arrow:hover {
+  transform: scale(1.1);
+  color: #CC4831;
+}
+
+/* Category Scroll Styles */
+.category-scroll-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.category-scroll-content {
+  display: flex;
+  animation: scrollCategories 50s linear infinite;
+  width: max-content;
+}
+
+.category-scroll-content.category-scroll-reverse {
+  animation: scrollCategoriesReverse 50s linear infinite;
+}
+
+.category-item {
+  flex: 0 0 auto;
+  width: 200px;
+  margin-right: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.category-item:hover {
+  transform: scale(1.05);
+}
+
+.category-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.category-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.875rem;
+  color: #333;
+}
+
+@keyframes scrollCategories {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollCategoriesReverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.p-megamenu .p-submenu-header {
+  @apply font-normal;
+}
+
+.p-sidebar-mask {
+  background-color: transparent !important;
+}
+
+.p-megamenu .p-megamenu-panel {
+  display: none !important;
+}
+
+.p-overlaypanel .p-overlaypanel-content {
+  padding: 0 !important;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin; 
+  scrollbar-color: rgba(156, 163, 175, 0.3) transparent; 
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 3px; 
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.2); 
+  border-radius: 2px; 
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(156, 163, 175, 0.3);
+}
+
+.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  @apply text-teal;
+  @apply border-teal;
+}
+
+.p-tabview .p-tabview-nav .p-tabview-nav-link {
+  @apply font-light;
+}
+
+.p-dropdown .p-dropdown-label {
+  @apply text-xs;
+  @apply font-poppins;
+  @apply mt-1;
+}
+
+.p-dropdown-trigger {
+  @apply text-xs;
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled).p-focus {
+  @apply text-teal;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page {
+  @apply font-poppins;
+}
+
+.custom-review-paginator .p-paginator-page {
+  @apply font-poppins text-xs;
+}
+
+.review-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(115, 115, 115, 0.3) transparent;
+  padding-right: 44px; 
+}
+
+.review-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  background-color: transparent;
+  position: absolute;
+  right: 0;
+}
+
+.review-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(115, 115, 115, 0.3);
+  border-radius: 3px;
+}
+
+.review-scrollbar::-webkit-scrollbar-track {
+  background-color: transparent;
+  position: absolute;
+  right: 0;
+} 
+
+.p-breadcrumb {
+  @apply font-poppins;
+  @apply text-xs;
+  @apply border border-transparent;
+  @apply bg-transparent;
+  @apply -mt-4;
+}
+
+.card-container {
+  position: relative;
+  width: 21rem;
+  height: 13.5rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.card-container:hover {
+  transform: scale(1.05);
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.card-container:hover .card-image {
+  transform: scale(1.1);
+}
+
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 55%;
+  background: linear-gradient(to top, #1E201E, transparent);
+  padding: 1rem;
+}
+
+.bookTable-image-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 45%;
+  height: 100%;
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 2rem;
+}
+
+.booktable-card {
+  position: relative;
+  overflow: hidden;
+  height: 28rem;
+}
+
+.booktable-content-container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 60%;
+  height: 100%;
+  background: white;
+  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 7rem;
+  padding-right : 2rem;
+}
+
+.p-datepicker table td > span, .p-datepicker table th > span {
+  width : 2rem !important;
+  height : 2rem !important;
+  @apply text-xs;
+}
+
+.p-datepicker table td.p-datepicker-today > span {
+  @apply bg-teal;
+  @apply text-white;
+}
+
+.p-datepicker .p-timepicker span {
+  @apply text-sm;
+}
+
+.p-calendar:not(.p-calendar-disabled).p-focus > .p-inputtext {
+  @apply font-poppins;
+}
+
+.p-datatable .p-datatable-footer {
+  @apply font-poppins;
+  @apply text-xs;
+}
