@@ -23,9 +23,9 @@ const OrderList = () => {
     ]
 
     const items = [
-        { label: 'Accepter' },
-        { label: 'Rejeter' },
-        { label: 'Détail' },
+        { label: 'Accepter', url : '/restaurant/order-detail' },
+        { label: 'Rejeter', url : '/restaurant/order-detail' },
+        { label: 'Détail',  url : '/restaurant/order-detail'},
     ]
 
     const [first, setFirst] = useState(0)

@@ -343,7 +343,7 @@ const VMenu = ({ collapsed, setCollapsed }) => {
     ]
 
     return (
-        <div className="flex z-30">
+        <div className="flex z-40">
             <div
                 ref={menuContainerRef}
                 className={`
