@@ -1,194 +1,172 @@
 from rest_framework import serializers
 from .models import *
 
-
 class UtilisateurSerializer(serializers.ModelSerializer):
     class Meta:
         model = Utilisateur
-        fields = ['id', 'email', 'motPasse', 'date_creation', 'derniere_connexion']
-
-
-class ClientSerializer(serializers.ModelSerializer):
-    utilisateur = serializers.PrimaryKeyRelatedField(queryset=Utilisateur.objects.all())
-
-    class Meta:
-        model = Client
-        fields = ['id', 'nom', 'contact', 'date_update', 'utilisateur']
-
-
-class AdministrateurSerializer(serializers.ModelSerializer):
-    utilisateur = serializers.PrimaryKeyRelatedField(queryset=Utilisateur.objects.all())
-
-    class Meta:
-        model = Administrateur
-        fields = ['id', 'nom', 'utilisateur']
-
+        fields = ['email', 'mot_passe', 'date_creation', 'derniere_connexion']
 
 class TypeRestaurantSerializer(serializers.ModelSerializer):
     class Meta:
         model = TypeRestaurant
-        fields = ['id', 'intitule']
-
+        fields = ['intitule']
 
 class RestaurantSerializer(serializers.ModelSerializer):
-    type_restaurant = serializers.PrimaryKeyRelatedField(queryset=TypeRestaurant.objects.all())
-
     class Meta:
         model = Restaurant
-        fields = ['id', 'nom', 'proprietaire', 'contact', 'image', 'total_table', 'type_restaurant']
-
+        fields = ['nom', 'proprietaire', 'contact', 'total_table', 'type_restaurant']
 
 class ImageRestaurantSerializer(serializers.ModelSerializer):
-    restaurant = serializers.PrimaryKeyRelatedField(queryset=Restaurant.objects.all())
-
     class Meta:
-        model = Image_Restaurant
-        fields = ['id', 'image', 'restaurant']
+        model = ImageRestaurant
+        fields = ['image', 'restaurant']
 
-
-class VilleSerializer(serializers.ModelSerializer):
+class AdministrateurSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Ville
-        fields = ['id', 'code_postal', 'nom']
+        model = Administrateur
+        fields = ['utilisateur', 'nom']
 
-
-class DomicileSerializer(serializers.ModelSerializer):
-    ville = serializers.PrimaryKeyRelatedField(queryset=Ville.objects.all())
-
+class ClientSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Domicile
-        fields = ['id', 'adresse', 'latitude', 'longitude', 'ville']
-
-
-class DomicileClientSerializer(serializers.ModelSerializer):
-    domicile = serializers.PrimaryKeyRelatedField(queryset=Domicile.objects.all())
-    client = serializers.PrimaryKeyRelatedField(queryset=Client.objects.all())
-
-    class Meta:
-        model = Domicile_Client
-        fields = ['id', 'domicile', 'client']
-
-
-class DomicileRestaurateurSerializer(serializers.ModelSerializer):
-    domicile = serializers.PrimaryKeyRelatedField(queryset=Domicile.objects.all())
-    restaurateur = serializers.PrimaryKeyRelatedField(queryset=Utilisateur.objects.all())
-
-    class Meta:
-        model = DomicileRestaurateur
-        fields = ['id', 'domicile', 'restaurateur']
-
+        model = Client
+        fields = ['utilisateur', 'nom', 'contact', 'date_update']
 
 class ImageClientSerializer(serializers.ModelSerializer):
-    client = serializers.PrimaryKeyRelatedField(queryset=Client.objects.all())
-
     class Meta:
         model = ImageClient
         fields = ['id', 'image', 'client']
 
+class DomicileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Domicile
+        fields = ['id', 'adresse', 'latitude', 'longitude', 'ville']
+
+class DomicileClientSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DomicileClient
+        fields = ['client']
+
+class VilleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Ville
+        fields = ['code_postal', 'nom']
+
+class DomicileRestaurateurSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DomicileRestaurateur
+        fields = ['latitude', 'longitude', 'restaurant']
+
+class NotificationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Notification
+        fields = ['message', 'lu', 'date_creation']
 
 class CommandeSerializer(serializers.ModelSerializer):
-    client = serializers.PrimaryKeyRelatedField(queryset=Client.objects.all())
-
     class Meta:
         model = Commande
-        fields = ['id', 'dateCommande', 'prixTotal', 'dateLivraison', 'client']
-
+        fields = ['date_commande', 'prix_total', 'date_livraison']
 
 class DetailCommandeSerializer(serializers.ModelSerializer):
-    commande = serializers.PrimaryKeyRelatedField(queryset=Commande.objects.all())
-
     class Meta:
-        model = Detail_commande
-        fields = ['quantite', 'commande']
-
+        model = DetailCommande
+        fields = ['commande', 'quantite']
 
 class CategorieMenuSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Categorie_Menu
-        fields = ['id', 'intitule', 'description']
-
+        model = CategorieMenu
+        fields = ['intitule', 'description']
 
 class ArticleMenuSerializer(serializers.ModelSerializer):
-    categorie = serializers.PrimaryKeyRelatedField(queryset=Categorie_Menu.objects.all())
-
     class Meta:
-        model = Article_Menu
-        fields = ['id', 'nom', 'description', 'prix', 'categorie']
-
+        model = ArticleMenu
+        fields = ['nom', 'description', 'prix', 'categorie']
 
 class MenuSerializer(serializers.ModelSerializer):
     class Meta:
         model = Menu
-        fields = ['id', 'visible']
+        fields = ['visible', 'articles']
 
+class ImageMenuSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ImageMenu
+        fields = ['image', 'article']
 
 class DisponibiliteMenuSerializer(serializers.ModelSerializer):
-    article = serializers.PrimaryKeyRelatedField(queryset=Article_Menu.objects.all())
-
     class Meta:
-        model = Disponibilite_Menu
-        fields = ['id', 'temps', 'article']
+        model = DisponibiliteMenu
+        fields = ['temps', 'article']
 
+class HoraireSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Horaire
+        fields = ['heure_debut', 'jour_ouverture', 'heure_fermeture', 'restaurant']
 
 class EvaluationSerializer(serializers.ModelSerializer):
-    restaurant = serializers.PrimaryKeyRelatedField(queryset=Restaurant.objects.all())
-
     class Meta:
         model = Evaluation
-        fields = ['id', 'note', 'commentaire', 'date_creation', 'restaurant']
-
+        fields = ['note', 'commentaire', 'date_creation', 'restaurant']
 
 class TableSerializer(serializers.ModelSerializer):
-    restaurant = serializers.PrimaryKeyRelatedField(queryset=Restaurant.objects.all())
-
     class Meta:
         model = Table
-        fields = ['id', 'numero', 'capacite', 'restaurant']
-
+        fields = ['numero', 'capacite', 'restaurant']
 
 class ReservationTableSerializer(serializers.ModelSerializer):
-    table = serializers.PrimaryKeyRelatedField(queryset=Table.objects.all())
-
     class Meta:
-        model = Reservation_Table
-        fields = ['id', 'dateReservation', 'table']
+        model = ReservationTable
+        fields = ['date_reservation', 'table']
 
+class StatutReservationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = StatutReservation
+        fields = ['statut', 'reservation']
 
 class CouponSerializer(serializers.ModelSerializer):
     class Meta:
         model = Coupon
-        fields = ['id', 'code', 'reduction', 'dateValideDebut', 'dateValideFin', 'actif']
-
+        fields = ['code', 'reduction', 'date_valide_debut', 'date_valide_fin', 'actif']
 
 class PaiementSerializer(serializers.ModelSerializer):
-    commande = serializers.PrimaryKeyRelatedField(queryset=Commande.objects.all())
-
     class Meta:
         model = Paiement
-        fields = ['id', 'montant', 'date_paiement', 'commande']
+        fields = ['montant', 'date_paiement']
 
+class MethodePaiementSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MethodePaiement
+        fields = ['methode']
 
 class LivraisonSerializer(serializers.ModelSerializer):
     class Meta:
         model = Livraison
-        fields = ['id']
+        fields = '__all__'
 
+class StatutCommandeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = StatutCommande
+        fields = ['statut', 'commande']
+
+class StatutLivraisonSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = StatutLivraison
+        fields = ['statut']
+
+class DetailLivraisonSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DetailLivraison
+        fields = ['date_real_livraison', 'frais']
 
 class LivreurSerializer(serializers.ModelSerializer):
     class Meta:
         model = Livreur
-        fields = ['id', 'nom', 'contact', 'disponible']
+        fields = ['nom', 'contact', 'disponible']
 
-
-class TypeVehicleSerializer(serializers.ModelSerializer):
+class TypeVehiculeSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Type_Vehicle
-        fields = ['id', 'vehicule']
-
+        model = TypeVehicule
+        fields = ['vehicule']
 
 class ImageLivreurSerializer(serializers.ModelSerializer):
-    livreur = serializers.PrimaryKeyRelatedField(queryset=Livreur.objects.all())
-
     class Meta:
-        model = Image_Livreur
-        fields = ['id', 'image', 'livreur']
+        model = ImageLivreur
+        fields = ['image']
