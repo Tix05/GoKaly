@@ -183,7 +183,7 @@ const DetailResto = () => {
                         </div>
                     </div>
                     <div className="pt-28">
-                        <LeafletMap />
+                        <LeafletMap lat={-18.91066109450162} long = { 47.52069175340895} place = "Tend M" width="80%"/>
                     </div>
                 </div>
             </div>

@@ -12,6 +12,9 @@ import Dashboard from './pages/restaurant/Dashboard'
 import ExploreResto from './pages/user/ExploreResto'
 import DetailResto from './pages/user/DetailResto'
 import Review from './pages/restaurant/Review'
+import OrderList from './pages/restaurant/OrderList'
+import ErrorPage from './pages/user/ErrorPage'
+import OrderDetail from './pages/restaurant/OrderDetail'
 
 function App() {
   const [loading, setLoading] = useState(false)
@@ -32,32 +35,34 @@ function App() {
   return (
     <>
       <AnimatePresence>
-        <body className='min-h-screen'>
-          <BrowserRouter><Routes>
-            {/** USER */}
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Home />} />
-              <Route index path='login' element={<Login />} />
-              <Route index path='register' element={<Register />} />
-              <Route index path='explore-resto' element={<ExploreResto />} />
-              <Route index path='detail-resto' element={<DetailResto />} />
-            </Route>
+        <div className="min-h-screen">
+          <BrowserRouter>
+            <Routes>
+              {/** USER */}
+              <Route path="/" element={<Layout />}>
+                <Route index element={<Home />} />
+                <Route path="login" element={<Login />} />
+                <Route path="register" element={<Register />} />
+                <Route path="explore-resto" element={<ExploreResto />} />
+                <Route path="detail-resto" element={<DetailResto />} />
+              </Route>
 
-            {/** RESTAURANT */}
-            <Route path="/login-restaurant" element={<LoginRestaurant />}></Route>
-            <Route path="/restaurant" element={<LayoutResto />}>
-              <Route index path="/restaurant/dashboard" element={<Dashboard />} />
-              <Route index path='/restaurant/review' element={<Review />} />
-            </Route>
-          </Routes>
+              {/** RESTAURANT */}
+              <Route path="/login-restaurant" element={<LoginRestaurant />} />
+              <Route path="/restaurant" element={<LayoutResto />}>
+                <Route path="dashboard" element={<Dashboard />} />
+                <Route path="review" element={<Review />} />
+                <Route path="order-list" element={<OrderList />} />
+                <Route path="order-detail" element={<OrderDetail />} />
+              </Route>
+
+              <Route path="*" element={<ErrorPage />} />
+            </Routes>
           </BrowserRouter>
-
-        </body>
+        </div>
       </AnimatePresence>
     </>
   )
-
-
 }
 
 export default App
