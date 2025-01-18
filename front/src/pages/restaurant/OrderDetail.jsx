@@ -37,6 +37,10 @@ const OrderDetail = () => {
         },
     ])
 
+    const point = [
+        { lat : -18.93093627639414, long : 47.54779860304597, place : "Adresse actuelle de Mirindra" }
+    ]
+
     const { collapsed } = useOutletContext()
 
     const items = [
@@ -164,7 +168,7 @@ const OrderDetail = () => {
             <div className="grid grid-cols-[60%_35%] gap-x-8 mt-9 me-8">
                 <div>
                     <div className="bg-neutral-50 shadow rounded-3xl p-4">
-                        <LeafletMap lat={-18.93093627639414} long={47.54779860304597} place="Adresse actuelle de Mirindra" />
+                        <LeafletMap points={point} />
                     </div>
 
                     <div className="mt-6">

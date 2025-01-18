@@ -2,12 +2,10 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import PropTypes from 'prop-types'
 import 'leaflet/dist/leaflet.css'
 
-const LeafletMap = ({ lat, long, place, width }) => {
-    const position = [lat, long]
-
+const LeafletMap = ({ points, width }) => {
     return (
         <MapContainer 
-            center={position} 
+            center={points.length > 0 ? [points[0].lat, points[0].long] : [0, 0]} 
             zoom={13} 
             style={{ width: width, height: "235px", zIndex: "40" }}
         >
@@ -15,19 +13,23 @@ const LeafletMap = ({ lat, long, place, width }) => {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             />
-            <Marker position={position}>
-                <Popup>
-                    {place}
-                </Popup>
-            </Marker>
+            {points.map((point, index) => (
+                <Marker key={index} position={[point.lat, point.long]}>
+                    <Popup>{point.place}</Popup>
+                </Marker>
+            ))}
         </MapContainer>
     )
 }
 
 LeafletMap.propTypes = {
-    lat: PropTypes.number.isRequired,
-    long: PropTypes.number.isRequired,
-    place: PropTypes.string.isRequired,
+    points: PropTypes.arrayOf(
+        PropTypes.shape({
+            lat: PropTypes.number.isRequired,
+            long: PropTypes.number.isRequired,
+            place: PropTypes.string,
+        })
+    ).isRequired,
     width: PropTypes.string,
 }
 
