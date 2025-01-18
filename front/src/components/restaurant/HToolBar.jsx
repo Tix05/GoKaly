@@ -20,11 +20,13 @@ const HToolBar = ({ collapsed, setCollapsed }) => {
     const profileItems = [
         {
             label: "Profil",
-            icon: "pi pi-user"
+            icon: "pi pi-user",
+            url : '/restaurant/profile-detail'
         },
         {
             label: "Déconnexion",
-            icon: "pi pi-sign-out"
+            icon: "pi pi-sign-out",
+            url : '/login-restaurant'
         },
     ]
 
