@@ -28,6 +28,10 @@ import TrendBlogContainer from "../../components/user/resto/TrendBlogContainer"
 const DetailResto = () => {
     const items = [{ label: 'Tend M'},]
 
+    const point = [
+        {lat : -18.91066109450162, long : 47.52069175340895, place : "Tend M"},
+    ]
+
     const chips = [
         { label: 'Malagasy' },
         { label: 'Chinoise'},
@@ -183,7 +187,7 @@ const DetailResto = () => {
                         </div>
                     </div>
                     <div className="pt-28">
-                        <LeafletMap />
+                        <LeafletMap points={point} width="80%"/>
                     </div>
                 </div>
             </div>

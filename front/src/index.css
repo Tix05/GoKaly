@@ -489,3 +489,15 @@ body {
   @apply font-poppins;
   @apply text-xs;
 }
+
+.p-tabview .p-tabview-nav, 
+.p-tabview .p-tabview-panels, 
+.p-tabview .p-tabview-nav .p-tabview-nav-link {
+  @apply bg-transparent;
+}
+
+.custom-password .p-inputtext {
+  border-radius: 0.75rem !important;
+  @apply font-poppins;
+  @apply w-72;
+}
