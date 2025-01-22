@@ -15,6 +15,7 @@ import Review from './pages/restaurant/Review'
 import OrderList from './pages/restaurant/OrderList'
 import ErrorPage from './pages/user/ErrorPage'
 import OrderDetail from './pages/restaurant/OrderDetail'
+import ProfileResto from './pages/restaurant/ProfileResto'
 
 function App() {
   const [loading, setLoading] = useState(false)
@@ -54,6 +55,7 @@ function App() {
                 <Route path="review" element={<Review />} />
                 <Route path="order-list" element={<OrderList />} />
                 <Route path="order-detail" element={<OrderDetail />} />
+                <Route path="profile-detail" element={<ProfileResto />} />
               </Route>
 
               <Route path="*" element={<ErrorPage />} />
