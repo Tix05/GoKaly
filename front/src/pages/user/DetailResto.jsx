@@ -13,6 +13,7 @@ import { Link } from "react-router-dom"
 import { GiPathDistance } from "react-icons/gi"
 import LeafletMap from '../../utils/LeafletMap'
 import CardMenu from "../../components/user/resto/CardMenu"
+import DialogMenu from "../../components/user/resto/DialogMenu"
 
 import crevette from "../../assets/tendm/crevette.jpg"
 import tipan from "../../assets/tendm/tipan.jpg"
@@ -26,6 +27,7 @@ import BookTableContainer from "../../components/user/resto/BookTableContainer"
 import TrendBlogContainer from "../../components/user/resto/TrendBlogContainer"
 
 const DetailResto = () => {
+    const [visibleMenu, setVisibleMenu] = useState(false)
     const items = [{ label: 'Tend M'},]
 
     const point = [
@@ -276,7 +278,9 @@ const DetailResto = () => {
         <section className = "px-40 pt-12">
             <div className="flex justify-between">
             <h3 className = "text-3xl font-satisfy">Explorez les menus du restaurant</h3>
-            <Button label="Consulter la carte" icon = "pi pi-clipboard" className = "font-poppins text-xs bg-transparent text-brick hover:bg-brick border border-brick h-10 mt-8 outline outline-none hover:text-white"/>
+            <Button label="Consulter la carte" icon = "pi pi-clipboard" onClick={() => setVisibleMenu(true)} 
+                className = "font-poppins text-xs bg-transparent text-brick hover:bg-brick border border-brick h-10 mt-8 outline outline-none hover:text-white"/>
+            <DialogMenu visibleMenu={visibleMenu} setVisibleMenu={setVisibleMenu}/>
             </div>
             
             <div className = "grid grid-cols-3 gap-x-2 gap-y-6 mt-4">
