@@ -1,77 +1,7 @@
+"""
 from django.db import models
 from django.contrib.auth.hashers import make_password
 
-class Utilisateur(models.Model):
-    email = models.EmailField(unique=True)
-    mot_passe = models.CharField(max_length=255)
-    date_creation = models.DateTimeField(auto_now_add=True)
-    derniere_connexion = models.DateTimeField(null=True, blank=True)
-
-    class Meta:
-        verbose_name = "Utilisateur"
-        verbose_name_plural = "Utilisateurs"
-
-    def __str__(self):
-        return self.nom
-    
-    def save(self, *args, **kwargs):
-        if self.mot_de_passe and not self.mot_de_passe.startswith('pbkdf2_sha256'):
-            self.mot_de_passe = make_password(self.mot_de_passe)
-        super(Utilisateur, self).save(*args, **kwargs)
-
-
-class TypeRestaurant(models.Model):
-    intitule = models.CharField(max_length=255)
-
-    class Meta:
-        verbose_name = "Type de Restaurant"
-        verbose_name_plural = "Types de Restaurants"
-
-class Restaurant(models.Model):
-    nom = models.CharField(max_length=255)
-    proprietaire = models.CharField(max_length=255)
-    contact = models.CharField(max_length=20)
-    total_table = models.IntegerField()
-    type_restaurant = models.ForeignKey(TypeRestaurant, on_delete=models.CASCADE)
-
-    class Meta:
-        verbose_name = "Restaurant"
-        verbose_name_plural = "Restaurants"
-
-class ImageRestaurant(models.Model):
-    image = models.ImageField(upload_to="images/restaurants/")
-    restaurant = models.OneToOneField(Restaurant, on_delete=models.CASCADE)
-
-    class Meta:
-        verbose_name = "Image de Restaurant"
-        verbose_name_plural = "Images de Restaurants"
-
-class Administrateur(models.Model):
-    utilisateur = models.OneToOneField(Utilisateur, on_delete=models.CASCADE)
-    nom = models.CharField(max_length=255)
-
-    class Meta:
-        verbose_name = "Administrateur"
-        verbose_name_plural = "Administrateurs"
-
-class Client(models.Model):
-    utilisateur = models.OneToOneField(Utilisateur, on_delete=models.CASCADE)
-    nom = models.CharField(max_length=255)
-    contact = models.CharField(max_length=20)
-    date_update = models.DateTimeField(auto_now=True)
-
-    class Meta:
-        verbose_name = "Client"
-        verbose_name_plural = "Clients"
-
-class ImageClient(models.Model):
-    id = models.AutoField(primary_key=True)
-    image = models.ImageField(upload_to='clients/')
-    client = models.OneToOneField('Client', on_delete=models.CASCADE, related_name='image')
-
-    class Meta:
-        verbose_name = "Image de Client"
-        verbose_name_plural = "Images de Clients"
 
 class Domicile(models.Model):
     id = models.AutoField(primary_key=True)
@@ -134,57 +64,6 @@ class DetailCommande(models.Model):
         verbose_name = "Détail de Commande"
         verbose_name_plural = "Détails de Commandes"
 
-class CategorieMenu(models.Model):
-    intitule = models.CharField(max_length=255)
-    description = models.TextField()
-
-    class Meta:
-        verbose_name = "Catégorie de Menu"
-        verbose_name_plural = "Catégories de Menus"
-
-class ArticleMenu(models.Model):
-    nom = models.CharField(max_length=255)
-    description = models.TextField()
-    prix = models.FloatField()
-    categorie = models.ForeignKey(CategorieMenu, on_delete=models.CASCADE)
-
-    class Meta:
-        verbose_name = "Article de Menu"
-        verbose_name_plural = "Articles de Menu"
-
-class Menu(models.Model):
-    visible = models.BooleanField(default=True)
-    articles = models.ManyToManyField(ArticleMenu)
-
-    class Meta:
-        verbose_name = "Menu"
-        verbose_name_plural = "Menus"
-
-class ImageMenu(models.Model):
-    image = models.ImageField(upload_to="images/menus/")
-    article = models.OneToOneField(ArticleMenu, on_delete=models.CASCADE)
-
-    class Meta:
-        verbose_name = "Image de Menu"
-        verbose_name_plural = "Images de Menus"
-
-class DisponibiliteMenu(models.Model):
-    temps = models.CharField(max_length=255)
-    article = models.OneToOneField(ArticleMenu, on_delete=models.CASCADE)
-
-    class Meta:
-        verbose_name = "Disponibilité de Menu"
-        verbose_name_plural = "Disponibilités de Menus"
-
-class Horaire(models.Model):
-    heure_debut = models.TimeField()
-    jour_ouverture = models.DateField()
-    heure_fermeture = models.TimeField()
-    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
-
-    class Meta:
-        verbose_name = "Horaire"
-        verbose_name_plural = "Horaires"
 
 class Evaluation(models.Model):
     note = models.FloatField()
@@ -196,14 +75,6 @@ class Evaluation(models.Model):
         verbose_name = "Évaluation"
         verbose_name_plural = "Évaluations"
 
-class Table(models.Model):
-    numero = models.CharField(max_length=10)
-    capacite = models.IntegerField()
-    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
-
-    class Meta:
-        verbose_name = "Table"
-        verbose_name_plural = "Tables"
 
 class ReservationTable(models.Model):
     date_reservation = models.DateTimeField()
@@ -277,25 +148,10 @@ class DetailLivraison(models.Model):
         verbose_name = "Détail de Livraison"
         verbose_name_plural = "Détails de Livraisons"
 
-class Livreur(models.Model):
-    nom = models.CharField(max_length=255)
-    contact = models.CharField(max_length=20)
-    disponible = models.BooleanField(default=True)
-
-    class Meta:
-        verbose_name = "Livreur"
-        verbose_name_plural = "Livreurs"
-
 class TypeVehicule(models.Model):
     vehicule = models.CharField(max_length=255)
 
     class Meta:
         verbose_name = "Type de Véhicule"
         verbose_name_plural = "Types de Véhicules"
-
-class ImageLivreur(models.Model):
-    image = models.ImageField(upload_to="images/livreurs/")
-
-    class Meta:
-        verbose_name = "Image de Livreur"
-        verbose_name_plural = "Images de Livreurs"
+"""
