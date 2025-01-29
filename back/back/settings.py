@@ -11,9 +11,16 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from corsheaders.defaults import default_headers
+import os
+import environ
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -37,13 +44,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'gokaly',
+    'account',
+    'restaurant',
+    'location',
+    'rest_framework',
+    'rest_framework_simplejwt',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -51,6 +64,45 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'back.urls'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+     'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    ),
+}
+
+SIMPLE_JWT = {
+    'AUTH_HEADER_TYPES': ('Bearer',),  
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ROTATE_REFRESH_TOKENS': True,
+    'BLACKLIST_AFTER_ROTATION': True,
+    'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
+}
+
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    'Authorization',  # Ceci est essentiel pour accepter le header Authorization pour l'authentification JWT
+    'Content-Type',
+    'X-Requested-With',
+    'Access-Control-Allow-Origin',  
+    'Access-Control-Allow-Methods',
+    'Access-Control-Allow-Headers',
+]
+
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:5173'
+]
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOW_METHODS=['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH']
 
 TEMPLATES = [
     {
@@ -69,12 +121,14 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'back.wsgi.application'
+ASGI_APPLICATION = 'back.asgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
+<<<<<<< HEAD
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'gokaly',
@@ -83,7 +137,12 @@ DATABASES = {
         'HOST': 'localhost',  
         'PORT': '5432', 
     }
+=======
+     'default': env.db('DATABASE_URL'),             
+>>>>>>> origin/jerry
 }
+
+DEBUG = env('DEBUG', default=True)
 
 
 
@@ -109,13 +168,15 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fr'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
 USE_TZ = True
+
+USE_L10N = True
 
 
 # Static files (CSS, JavaScript, Images)
