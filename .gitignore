@@ -1,7 +1,15 @@
 
+<<<<<<< Updated upstream
 .history/
 
 node_modules/
+<<<<<<< HEAD
+=======
+.codegpt
+>>>>>>> Stashed changes
+
+.codegpt
+=======
 
 back/.env
 
@@ -9,3 +17,4 @@ back/delivery
 back/order
 back/notification
 back/payment
+>>>>>>> origin/jerry

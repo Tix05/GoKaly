@@ -128,10 +128,22 @@ ASGI_APPLICATION = 'back.asgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
+<<<<<<< HEAD
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'gokaly',
+        'USER': 'jerry',
+        'PASSWORD': 'jerry',
+        'HOST': 'localhost',  
+        'PORT': '5432', 
+    }
+=======
      'default': env.db('DATABASE_URL'),             
+>>>>>>> origin/jerry
 }
 
 DEBUG = env('DEBUG', default=True)
+
 
 
 # Password validation
