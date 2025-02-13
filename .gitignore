@@ -2,3 +2,10 @@
 .history/
 
 node_modules/
+
+back/.env
+
+back/delivery
+back/order
+back/notification
+back/payment
